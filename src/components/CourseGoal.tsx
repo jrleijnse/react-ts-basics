@@ -1,4 +1,4 @@
-import { ReactNode, type PropsWithChildren } from "react";
+import { type PropsWithChildren } from "react";
 
 // interface CourseGoalProps {
 //   title: string;
@@ -6,12 +6,13 @@ import { ReactNode, type PropsWithChildren } from "react";
 // }
 
 type CourseGoalProps = PropsWithChildren<{
+  id: number;
   title: string;
-  children: ReactNode;
-  onDelete: () => void;
+  onDelete: (id: number) => void;
 }>;
 
 export default function CourseGoal({
+  id,
   title,
   children,
   onDelete,
@@ -22,7 +23,7 @@ export default function CourseGoal({
         <h2>{title}</h2>
         {children}
       </div>
-      <button onClick={onDelete}>Delete</button>
+      <button onClick={() => onDelete(id)}>Delete</button>
     </article>
   );
 }
