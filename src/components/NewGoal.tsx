@@ -18,6 +18,7 @@ export default function NewGoal({ onAddGoal }: NewGoalProps) {
     console.log("Goal:", goalValue);
     console.log("Summary:", summaryValue);
 
+    event.currentTarget.reset();
     onAddGoal(goalValue, summaryValue);
   }
 
