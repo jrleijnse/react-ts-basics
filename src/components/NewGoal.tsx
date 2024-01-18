@@ -1,15 +1,29 @@
+import { useRef, type FormEvent } from "react";
+
 export default function NewGoal() {
-  function handleSubmit() {}
+  const formRef = useRef<HTMLFormElement>(null);
+  const goalRef = useRef<HTMLInputElement>(null);
+  const summaryRef = useRef<HTMLInputElement>(null);
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const goalValue = goalRef.current!.value;
+    const summaryValue = summaryRef.current!.value;
+
+    console.log("Goal:", goalValue);
+    console.log("Summary:", summaryValue);
+  }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form ref={formRef} onSubmit={handleSubmit}>
       <p>
         <label htmlFor="goal">Your Goal</label>
-        <input id="goal" type="text" />
+        <input ref={goalRef} id="goal" type="text" name="goal" />
       </p>
       <p>
         <label htmlFor="summary">Short Summary</label>
-        <input id="summary" type="text" />
+        <input ref={summaryRef} id="summary" type="text" name="summary" />
       </p>
       <p>
         <button></button>
