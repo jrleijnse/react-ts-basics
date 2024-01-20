@@ -34,7 +34,7 @@ export default function NewGoal({ onAddGoal }: NewGoalProps) {
         <input ref={summaryRef} id="summary" type="text" name="summary" />
       </p>
       <p>
-        <button>Add</button>
+        <button>Add Goal</button>
       </p>
     </form>
   );
