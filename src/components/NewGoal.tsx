@@ -16,9 +16,6 @@ export default function NewGoal({ onAddGoal }: NewGoalProps) {
     const goalValue = goalRef.current!.value;
     const summaryValue = summaryRef.current!.value;
 
-    console.log("Goal:", goalValue);
-    console.log("Summary:", summaryValue);
-
     form.reset();
     onAddGoal(goalValue, summaryValue);
   }
